@@ -1,0 +1,55 @@
+
+
+A un programador fanático de los Simpsons le interesa hacer un resumen de esta loca
+familia de Springfield y entregar premios a lo mejor de esta serie. Se interesa por
+premiar a los ganadores para las siguientes categorías:
+
+● Mejor temporada.
+● Mejor Año.
+● Mejor capítulo.
+● Top 3 de los mejores capítulos por temporada.
+
+Agregar el archivo t_fdev_simpsons.csv dentro de los insumos del proyecto.
+
+Estas son las reglas que deberán implementarse sobre los datasets, recuerda organizar tu
+código en varios métodos, no dejes todo en único método:
+
+1. Limpiar el dataset, quitando los registros que tengan nulos en las columnas rating,
+votes y viewers_in_millions.
+
+2. Obtener la mejor temporada de los simpsons de acuerdo al mayor rating
+
+	Resultado esperado:
+		|	season	|	total_rating		|
+		|		7	|	208.10000038146973	|
+
+3. Obtener el mejor año de los simpsons de acuerdo al número de vistas de los
+capítulos de dicho año, de acuerdo a los siguientes criterios:
+
+	a. Para saber a qué año pertenece un capítulo toma como referencia la columna
+	original_air_year.
+	b. Considera que la columna viewers_in_millions indica el número de vistas que
+	tuvo cada capítulo.
+
+	Resultado esperado:
+		| original_air_year		|	viewers_in_millions	|
+		|				1990	|	577.6000003814697	|
+
+4. Obtener el mejor capítulo: de acuerdo a las siguientes reglas.
+	a. Agrega una columna score, de acuerdo a la siguiente fórmula:
+	rating*viewers_in_millions.
+	b. El mejor capítulo será el que tenga mayor score.
+
+	Resultado esperado:
+		| 				title	|	score	|
+		| "Bart Gets an ""F"""	|	275.52	|
+
+5. Obtener el top 3 de capítulos por cada temporada de acuerdo a su score, guardar el
+resultado en formato parquet, de acuerdo a los siguientes criterios:
+	a. La última temporada no tiene suficiente información para sacar un top 3,
+	entonces tome en cuenta que si una temporada no tiene al menos 3 capítulos
+	no se incluye en el resultado.
+	b. Almacenar estos tops en un archivo en formato parquet en la ruta
+	resources/data/output.
+
+	
